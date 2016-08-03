@@ -5,7 +5,7 @@ public class Game implements Comparable<Game> {
 	private Integer id;
 	private Team homeTeam;
 	private Team awayTeam;
-	private Integer randomSeed;
+	private Long randomSeed;
 //	private Integer rating;
 
 	public Game() {
@@ -43,11 +43,11 @@ public class Game implements Comparable<Game> {
 	
 	
 
-	public Integer getRandomSeed() {
+	public Long getRandomSeed() {
 		return randomSeed;
 	}
 
-	public void setRandomSeed(Integer randomSeed) {
+	public void setRandomSeed(Long randomSeed) {
 		this.randomSeed = randomSeed;
 	}
 
