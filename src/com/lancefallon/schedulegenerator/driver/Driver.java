@@ -51,17 +51,13 @@ public class Driver {
 			
 			//keep trying to generate a schedule until each team has 16 games
 			boolean finished = false;
-			do{
-				 finished = scheduleGenerationService.generateSchedule();
-			} while(!finished);
+			do{ finished = scheduleGenerationService.generateSchedule(); }
+			while(!finished);
 			
 			//organize the home / away games. perform passes until each team has 8 home and away games
+			//return how many "flips" (home / away switches) were performed. if none, then all teams have right # of home / away games and can break out of loop
 			int flips = 0;
-			do{
-				//return how many "flips" (home / away switches) were performed. if none, then all teams have right # of home / away games and can break out of loop
-				flips = scheduleGenerationService.organizeHomeAndAway();
-				System.out.println(flips);
-			}
+			do{ flips = scheduleGenerationService.organizeHomeAndAway(); } 
 			while(flips > 0);
 			
 			//garbage - don't need to spit anything out, but doing it to anylyze with javascript in browser
@@ -70,7 +66,4 @@ public class Driver {
 			System.out.println("finished " + (i+1) + " of " + limit + " schedules");
 		}
 	}
-	
-
-
 }

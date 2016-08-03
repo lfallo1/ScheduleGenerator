@@ -51,8 +51,10 @@ public class ScheduleGenerationService {
 					// loop through their available games
 					for (Game game : possibleMatchups) {
 						counter++;
-						if (!isPlayingInWeek(week, game.getHomeTeam())
-								&& !isPlayingInWeek(week, game.getAwayTeam())) {
+						
+						//todo check for consecutive home / away games
+						if ((isPlayingInWeek(week, game.getHomeTeam()) == null) && (isPlayingInWeek(week, game.getAwayTeam()) == null) 
+								&& !didPlayPlayInWeek((i-1), game)) {
 							week.getGames().add(game);
 							possibleMatchups.remove(game);
 							break;
@@ -71,6 +73,38 @@ public class ScheduleGenerationService {
 		}
 
 		return weeks.size() == 16;
+	}
+
+	private boolean threeConsecutiveHomeOrAway(int weekIndex, Team team, boolean home) {
+		if(weekIndex < 3 || weekIndex >= weeks.size()){
+			return false;
+		}
+		
+		int counter = 0;
+		
+		//java stream api doesnt provide easy implementation of an index. so just looping standard way
+		for(int i = weekIndex - 3; i < weekIndex; i++){
+			Week week = weeks.get(i);
+			Game game = week.getGames().stream().filter(g -> g.getHomeTeam().equals(team) || g.getAwayTeam().equals(team)).findFirst().get();
+			counter += game.getHomeTeam().equals(team) ? 1 : -1;
+			if(Math.abs(counter) > 1){
+				System.out.println("curious");
+			}
+		}
+		return Math.abs(counter) == 3;
+	}
+
+	private boolean didPlayPlayInWeek(int weekIndex, Game game) {
+		if(weekIndex < 0 || weekIndex >= weeks.size()){
+			return false;
+		}
+		
+		Team homeTeam = game.getHomeTeam();
+		Team awayTeam = game.getAwayTeam();
+		
+		Game previousWeek = isPlayingInWeek(weeks.get(weekIndex), homeTeam);
+		return previousWeek != null && ( (previousWeek.getAwayTeam().equals(awayTeam) && previousWeek.getHomeTeam().equals(homeTeam)) || 
+				(previousWeek.getHomeTeam().equals(awayTeam) && previousWeek.getAwayTeam().equals(homeTeam)));
 	}
 
 	/**
@@ -413,15 +447,15 @@ public class ScheduleGenerationService {
 	 * @param team
 	 * @return
 	 */
-	public Boolean isPlayingInWeek(Week week, Team team) {
+	public Game isPlayingInWeek(Week week, Team team) {
 		List<Game> games = week.getGames();
 		for (int i = 0; i < games.size(); i++) {
 			if (games.get(i).getAwayTeam().equals(team)
 					|| games.get(i).getHomeTeam().equals(team)) {
-				return true;
+				return games.get(i);
 			}
 		}
-		return false;
+		return null;
 	}
 
 	/**
