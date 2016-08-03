@@ -7,16 +7,22 @@ public class Team {
 	private String name;
 	private Division division;
 	private Integer divisionRank;
+	private Integer previousSeasonWins;
+	private Boolean madePlayoffs;
 
 	public Team() {
 	}
 
-	public Team(Integer id, long randomSeed, String name, Division division, Integer divisionRank) {
+	public Team(Integer id, long randomSeed, String name, Division division,
+			Integer divisionRank, Integer previousSeasonWins,
+			Boolean madePlayoffs) {
 		this.id = id;
 		this.randomSeed = randomSeed;
 		this.name = name;
 		this.division = division;
 		this.divisionRank = divisionRank;
+		this.previousSeasonWins = previousSeasonWins;
+		this.madePlayoffs = madePlayoffs;
 	}
 
 	public Integer getId() {
@@ -50,8 +56,6 @@ public class Team {
 	public void setRandomSeed(long randomSeed) {
 		this.randomSeed = randomSeed;
 	}
-	
-	
 
 	public Integer getDivisionRank() {
 		return divisionRank;
@@ -59,6 +63,22 @@ public class Team {
 
 	public void setDivisionRank(Integer divisionRank) {
 		this.divisionRank = divisionRank;
+	}
+
+	public Integer getPreviousSeasonWins() {
+		return previousSeasonWins;
+	}
+
+	public void setPreviousSeasonWins(Integer previousSeasonWins) {
+		this.previousSeasonWins = previousSeasonWins;
+	}
+
+	public Boolean getMadePlayoffs() {
+		return madePlayoffs;
+	}
+
+	public void setMadePlayoffs(Boolean madePlayoffs) {
+		this.madePlayoffs = madePlayoffs;
 	}
 
 	@Override

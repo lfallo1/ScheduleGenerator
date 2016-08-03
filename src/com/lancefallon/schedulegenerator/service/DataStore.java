@@ -8,7 +8,6 @@ import java.util.Random;
 
 import com.lancefallon.schedulegenerator.model.Conference;
 import com.lancefallon.schedulegenerator.model.Division;
-import com.lancefallon.schedulegenerator.model.Game;
 import com.lancefallon.schedulegenerator.model.Team;
 
 public class DataStore {
@@ -80,43 +79,38 @@ public class DataStore {
 	
 	public void generateTeams(){
 		Random r = new Random();
-		Team arizona_cardinals = new Team(1,r.nextLong(),"Arizona Cardinals ",nfcWest, 1);
-		Team atlanta_falcons = new Team(2,r.nextLong(),"Atlanta Falcons ",nfcSouth, 3);
-		Team baltimore_ravens = new Team(3,r.nextLong(),"Baltimore Ravens ",afcNorth, 3);
-		Team buffalo_bills = new Team(4,r.nextLong(),"Buffalo Bills ",afcEast,3);
-		Team carolina_panthers = new Team(5,r.nextLong(),"Carolina Panthers ",nfcSouth,1);
-		Team chicago_bears = new Team(6,r.nextLong(),"Chicago Bears ",nfcNorth,3);
-		Team cincinnati_bengals = new Team(7,r.nextLong(),"Cincinnati Bengals ",afcNorth,1);
-		Team cleveland_browns = new Team(8,r.nextLong(),"Cleveland Browns ",afcNorth,4);
-		Team dallas_cowboys = new Team(9,r.nextLong(),"Dallas Cowboys ",nfcEast,3);
-		Team denver_broncos = new Team(10,r.nextLong(),"Denver Broncos ",afcWest,1);
-		Team detroit_lions = new Team(11,r.nextLong(),"Detroit Lions ",nfcNorth,4);
-		Team green_bay_packers = new Team(12,r.nextLong(),"Green Bay Packers ",nfcNorth,1);
-		Team houston_texans = new Team(13,r.nextLong(),"Houston Texans ",afcSouth,1);
-		Team indianapolis_colts = new Team(14,r.nextLong(),"Indianapolis Colts ",afcSouth,2);
-		Team jacksonville_jaguars = new Team(15,r.nextLong(),"Jacksonville Jaguars ",afcSouth,4);
-		Team kansas_city_chiefs = new Team(16,r.nextLong(),"Kansas City Chiefs ",afcWest,2);
-		Team miami_dolphins = new Team(17,r.nextLong(),"Miami Dolphins ",afcEast,4);
-		Team minnesota_vikings = new Team(18,r.nextLong(),"Minnesota Vikings ",nfcNorth,2);
-		Team new_england_patriots = new Team(19,r.nextLong(),"New England Patriots ",afcEast,1);
-		Team new_orleans_saints = new Team(20,r.nextLong(),"New Orleans Saints ",nfcSouth,2);
-		Team new_york_giants = new Team(21,r.nextLong(),"New York Giants ",nfcEast,4);
-		Team new_york_jets = new Team(22,r.nextLong(),"New York Jets ",afcEast,2);
-		Team oakland_raiders = new Team(23,r.nextLong(),"Oakland Raiders ",afcWest,4);
-		Team philadelphia_eagles = new Team(24,r.nextLong(),"Philadelphia Eagles ",nfcEast,2);
-		Team pittsburgh_steelers = new Team(25,r.nextLong(),"Pittsburgh Steelers ",afcNorth,2);
-		Team san_diego_chargers = new Team(26,r.nextLong(),"San Diego Chargers ",afcWest,3);
-		Team san_francisco_49ers = new Team(27,r.nextLong(),"San Francisco 49ers ",nfcWest,4);
-		Team seattle_seahawks = new Team(28,r.nextLong(),"Seattle Seahawks ",nfcWest,2);
-		Team stlouis_rams = new Team(29,r.nextLong(),"St. Louis Rams ",nfcWest,3);
-		Team tampa_bay_buccaneers = new Team(30,r.nextLong(),"Tampa Bay Buccaneers ",nfcSouth,4);
-		Team tennessee_titans = new Team(31,r.nextLong(),"Tennessee Titans ",afcSouth,3);
-		Team washington_redskins = new Team(32,r.nextLong(),"Washington Redskins",nfcEast,1);
-		
-		Game g1 = new Game(1, baltimore_ravens, pittsburgh_steelers);
-		Game g2 = new Game(2, pittsburgh_steelers, baltimore_ravens);
-		System.out.println(g1.equals(g2));
-		
+		Team arizona_cardinals = new Team(1,r.nextLong(),"Arizona Cardinals ",nfcWest, 1, 13, true);
+		Team atlanta_falcons = new Team(2,r.nextLong(),"Atlanta Falcons ",nfcSouth, 2,8,false);
+		Team baltimore_ravens = new Team(3,r.nextLong(),"Baltimore Ravens ",afcNorth, 3, 5, false);
+		Team buffalo_bills = new Team(4,r.nextLong(),"Buffalo Bills ",afcEast,3,8,false);
+		Team carolina_panthers = new Team(5,r.nextLong(),"Carolina Panthers ",nfcSouth,1,15,true);
+		Team chicago_bears = new Team(6,r.nextLong(),"Chicago Bears ",nfcNorth,3, 6, false);
+		Team cincinnati_bengals = new Team(7,r.nextLong(),"Cincinnati Bengals ",afcNorth,1,12,true);
+		Team cleveland_browns = new Team(8,r.nextLong(),"Cleveland Browns ",afcNorth,4,3,false);
+		Team dallas_cowboys = new Team(9,r.nextLong(),"Dallas Cowboys ",nfcEast,3, 4, false);
+		Team denver_broncos = new Team(10,r.nextLong(),"Denver Broncos ",afcWest,1, 12, true);
+		Team detroit_lions = new Team(11,r.nextLong(),"Detroit Lions ",nfcNorth,4, 7, false);
+		Team green_bay_packers = new Team(12,r.nextLong(),"Green Bay Packers ",nfcNorth,1, 10, true);
+		Team houston_texans = new Team(13,r.nextLong(),"Houston Texans ",afcSouth,1, 9, true);
+		Team indianapolis_colts = new Team(14,r.nextLong(),"Indianapolis Colts ",afcSouth,2,8,false);
+		Team jacksonville_jaguars = new Team(15,r.nextLong(),"Jacksonville Jaguars ",afcSouth,3, 5, false);
+		Team kansas_city_chiefs = new Team(16,r.nextLong(),"Kansas City Chiefs ",afcWest,2, 11, true);
+		Team miami_dolphins = new Team(17,r.nextLong(),"Miami Dolphins ",afcEast,4, 6, false);
+		Team minnesota_vikings = new Team(18,r.nextLong(),"Minnesota Vikings ",nfcNorth,2, 11, true);
+		Team new_england_patriots = new Team(19,r.nextLong(),"New England Patriots ",afcEast,1, 12, true);
+		Team new_orleans_saints = new Team(20,r.nextLong(),"New Orleans Saints ",nfcSouth,3, 7, false);
+		Team new_york_giants = new Team(21,r.nextLong(),"New York Giants ",nfcEast,4, 6, false);
+		Team new_york_jets = new Team(22,r.nextLong(),"New York Jets ",afcEast,2, 10, false);
+		Team oakland_raiders = new Team(23,r.nextLong(),"Oakland Raiders ",afcWest,4, 7, false);
+		Team philadelphia_eagles = new Team(24,r.nextLong(),"Philadelphia Eagles ",nfcEast,2, 7, false);
+		Team pittsburgh_steelers = new Team(25,r.nextLong(),"Pittsburgh Steelers ",afcNorth, 2, 10, true);
+		Team san_diego_chargers = new Team(26,r.nextLong(),"San Diego Chargers ",afcWest,3, 4, false);
+		Team san_francisco_49ers = new Team(27,r.nextLong(),"San Francisco 49ers ",nfcWest,4, 5, false);
+		Team seattle_seahawks = new Team(28,r.nextLong(),"Seattle Seahawks ",nfcWest,2,10, true);
+		Team stlouis_rams = new Team(29,r.nextLong(),"St. Louis Rams ",nfcWest,3, 7, false);
+		Team tampa_bay_buccaneers = new Team(30,r.nextLong(),"Tampa Bay Buccaneers ",nfcSouth,4, 6, false);
+		Team tennessee_titans = new Team(31,r.nextLong(),"Tennessee Titans ",afcSouth,4,3,false);
+		Team washington_redskins = new Team(32,r.nextLong(),"Washington Redskins",nfcEast,1, 9, true);
 		teams = Arrays.asList(arizona_cardinals, atlanta_falcons, baltimore_ravens, buffalo_bills, carolina_panthers, chicago_bears, cincinnati_bengals, cleveland_browns, dallas_cowboys, denver_broncos, detroit_lions, green_bay_packers, houston_texans, indianapolis_colts, jacksonville_jaguars, kansas_city_chiefs, miami_dolphins, minnesota_vikings, new_england_patriots, new_orleans_saints, new_york_giants, new_york_jets, oakland_raiders, philadelphia_eagles, pittsburgh_steelers, san_diego_chargers, san_francisco_49ers, seattle_seahawks, stlouis_rams, tampa_bay_buccaneers, tennessee_titans, washington_redskins);
 		teams.sort((a,b)->a.getRandomSeed() > b.getRandomSeed() ? 1 : a.getRandomSeed() < b.getRandomSeed() ? -1 : 0);
 	}
