@@ -6,15 +6,17 @@ public class Team {
 	private long randomSeed;
 	private String name;
 	private Division division;
+	private Integer divisionRank;
 
 	public Team() {
 	}
 
-	public Team(Integer id, long randomSeed, String name, Division division) {
+	public Team(Integer id, long randomSeed, String name, Division division, Integer divisionRank) {
 		this.id = id;
 		this.randomSeed = randomSeed;
 		this.name = name;
 		this.division = division;
+		this.divisionRank = divisionRank;
 	}
 
 	public Integer getId() {
@@ -47,6 +49,16 @@ public class Team {
 
 	public void setRandomSeed(long randomSeed) {
 		this.randomSeed = randomSeed;
+	}
+	
+	
+
+	public Integer getDivisionRank() {
+		return divisionRank;
+	}
+
+	public void setDivisionRank(Integer divisionRank) {
+		this.divisionRank = divisionRank;
 	}
 
 	@Override
